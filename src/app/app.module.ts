@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import {LoginService} from "./login.service";
 import {SharedService} from "./shared.service";
-import { AdminDeshboardComponent } from './admin-deshboard/admin-deshboard.component';
+import { AdminDeshboardComponent } from './admin-dashboard/admin-dashboard.component';
 import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({

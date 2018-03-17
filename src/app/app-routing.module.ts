@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import {LoginComponent} from './login/login.component';
-import {AdminDeshboardComponent} from "./admin-deshboard/admin-deshboard.component";
+import {AdminDeshboardComponent} from "./admin-dashboard/admin-dashboard.component";
 
 const routes: Routes = [
   {path: '', component: LoginComponent},

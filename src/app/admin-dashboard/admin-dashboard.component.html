@@ -1,0 +1,120 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+
+        <a class="navbar-brand navbar-toggler-left" href="">
+          <img class="navbar-logo" src="./assets/usr-logo.jpg"></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+          <ul class="navbar-nav ml-md-auto">
+            <li class = "nav-item">
+              <a class= "nav-link" href="" id = ""> Contact </a>
+            </li>
+
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="text-center">
+        Uniunea Studenților din România
+      </h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="tabbable" id="tabs-961756">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="#panel-878632" data-toggle="tab">Studenți</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#panel-52856" data-toggle="tab">Asociații</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="panel-878632">
+            <table class="table table-bordered table-hover table-sm" >
+              <thead>
+              <tr>
+
+                <th>
+                  ID
+                </th>
+                <th>
+                  Nume
+                </th>
+                <th>
+                  Prenume
+                </th>
+                <th>
+                  Asociație
+                </th>
+                <th>
+                  Federație
+                </th>
+                <th>
+                  Facultate
+                </th>
+                <th>
+                  Consiliu
+                </th>
+                <th>
+                  Senat
+                </th>
+                <th>
+                  Consiliu de Administrație
+                </th>
+                <th>
+                  Edit
+                </th>
+                <th>
+                  Delete
+                </th>
+
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let stud of studenti">
+                <td>
+                  {{stud.id}}
+                </td>
+                <td>
+                  {{stud.username}}
+                </td>
+                <td>
+                  01/04/2012
+                </td>
+                <td>
+                  Default
+                </td>
+                <td>
+                  <a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+                </td>
+                <td>
+                  <a class='btn btn-warning btn-xs' href="#"><span class="glyphicon glyphicon-remove"></span> Șterge</a>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-pane" id="panel-52856">
+            <p>
+              Howdy, I'm in Section 2.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
