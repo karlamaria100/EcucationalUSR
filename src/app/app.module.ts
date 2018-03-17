@@ -8,12 +8,14 @@ import {LoginService} from "./login.service";
 import {SharedService} from "./shared.service";
 import { AdminDeshboardComponent } from './admin-dashboard/admin-dashboard.component';
 import {HttpClientModule} from "@angular/common/http";
+import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    AdminDeshboardComponent
+    AdminDeshboardComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
