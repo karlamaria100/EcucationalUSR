@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import {LoginComponent} from './login/login.component';
+import {AdminDeshboardComponent} from "./admin-deshboard/admin-deshboard.component";
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
+  {path: 'admin', component: AdminDeshboardComponent}
 //   // {path: 'confirmation/:token', component: ConfirmationComponent},
 //   // {path: 'reset-password/:token', component: ResetPasswordComponent},
 //   // {path: 'login', component: LoginComponent},
