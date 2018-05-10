@@ -12,12 +12,10 @@
 
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
           <ul class="navbar-nav ml-md-auto">
             <li class = "nav-item">
               <a class= "nav-link" href="" id = ""> Contact </a>
             </li>
-
           </ul>
         </div>
       </nav>
@@ -52,7 +50,7 @@
                   ID
                 </th>
                 <th>
-                  Username
+                  Email
                 </th>
                 <th>
                   Nume
@@ -93,22 +91,22 @@
                   {{stud.id}}
                 </td>
                 <td>
-                  {{stud.username}}
+                  {{stud.email}}
                 </td>
                 <td>
-                  Nume
+                  {{stud.nume}}
                 </td>
                 <td>
-                  Prenume
+                  {{stud.prenume}}
                 </td>
                 <td>
-                  ASMI
+                  {{stud.asociatie}}
                 </td>
                 <td>
-                  USR
+                  {{stud.federatie}}
                 </td>
                 <td>
-                  Facultatea de Matematica si Informatica
+                  {{stud.id_facultate}}
                 </td>
                 <td class="text-center">
                   <i class="fas fa-check"></i>
@@ -120,24 +118,122 @@
                   <i class="fas fa-check"></i>
                 </td>
                 <td class="text-center">
-                  <a class='btn btn-info btn-xs' href="#"><i class="fas fa-edit"></i> Edit</a>
+                  <!--<a class='btn btn-info btn-xs' onclick="openModal(stud)"><i class="fas fa-edit"></i> Edit</a>-->
+                  <button type="button" class="btn btn-primary" (click)="openModal(stud)" data-toggle="modal" data-target="#editModal">
+                    <i class="fas fa-edit"></i> Edit
+                  </button>
                 </td>
                 <td class="text-center">
-                  <a class='btn btn-warning btn-xs' href="#"><i class="fas fa-trash-alt"></i> Șterge</a>
+                  <a class='btn btn-danger btn-xs' href="#"><i class="fas fa-trash-alt"></i> Șterge</a>
                 </td>
               </tr>
               </tbody>
             </table>
           </div>
           <div class="tab-pane" id="panel-52856">
-            <p>
-              Howdy, I'm in Section 2.
-            </p>
+            <table class="table table-bordered table-hover table-sm" >
+              <thead>
+              <tr>
+                <th>
+                  ID
+                </th>
+                <th>
+                  Denumire
+                </th>
+                <th>
+                  Oraș
+                </th>
+                <th>
+                  Jurisdicție
+                </th>
+                <th>
+                  Edit
+                </th>
+                <th>
+                  Delete
+                </th>
+
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let asoc of asociatii">
+                <td>
+                  {{asoc.id}}
+                </td>
+                <td>
+                  {{asoc.denumire}}
+                </td>
+                <td>
+                  {{asoc.oras}}
+                </td>
+                <td>
+                  {{asoc.jurisdictie}}
+                </td>
+                <td class="text-center">
+                  <button type="button" class="btn btn-primary edit" data-toggle="modal" data-target="#editModal">
+                    <i class="fas fa-edit"></i> Edit
+                  </button>
+                </td>
+                <td class="text-center">
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+                    <i class="fas fa-trash-alt"></i> Șterge
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
 
     </div>
     <div class="col-md-1"></div>
+  </div>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <a>Nume:</a>
+        <input type="text" id="modalNume" class="form-control validate nume">
+        <a>Prenume</a>
+        <input type="text" id="modalPrenume" class="form-control validate prenume">
+        <a> Asociație </a>
+        <input type="text" id="modalAsociatie" class="form-control validate asociatie">
+        <a> Federatie </a>
+        <input type="text" id="modalFederatie" class="form-control validate federatie">
+        <a> Facultate </a>
+        <input type="text" id="modalFacultate" class="form-control validate facultate">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ești sigur că vrei să ștergi?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
   </div>
 </div>

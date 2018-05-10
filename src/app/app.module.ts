@@ -10,6 +10,7 @@ import { AdminDeshboardComponent } from './admin-dashboard/admin-dashboard.compo
 import {HttpClientModule} from "@angular/common/http";
 import { LandingComponent } from './landing/landing.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     LoginComponent,
     AdminDeshboardComponent,
     LandingComponent,
-    HomepageComponent
+    HomepageComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
