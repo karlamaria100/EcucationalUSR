@@ -1,4 +1,5 @@
 <div class="container-fluid">
+
   <div class="row">
     <div class="col-md-12">
       <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
@@ -13,13 +14,18 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="navbar-nav ml-md-auto">
             <li class = "nav-item">
-              <a class= "nav-link" href="" id = ""> Contact </a>
+              <a class= "nav-link" href=""> Contact </a>
+            </li>
+            <li>
+              <a class="nav-link" href="">User Homepage</a>
             </li>
           </ul>
         </div>
       </nav>
     </div>
   </div>
+
+
 
   <div class="row">
     <div class="col-md-12">
@@ -28,6 +34,19 @@
       </h3>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10"style="margin-bottom: 20px;margin-top: 20px;">
+      <button type="button" class="btn btn-info" (click)="openAddModal()" data-toggle="modal" data-target="#addModal">
+        <i class="fas fa-plus"></i> Student
+      </button>
+      <button class="btn btn-info" type="button"><i class="fas fa-plus"></i> Asociație</button>
+      <button class="btn btn-info" type="button"><i class="fas fa-plus"></i> Universitate</button>
+    </div>
+    <div class="col-1"></div>
+  </div>
+
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10">
@@ -261,6 +280,48 @@
 
     </div>
     <div class="col-md-1"></div>
+  </div>
+</div>
+
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add new student</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <a>Nume:</a>
+        <input type="text" id="modalAddNume" class="form-control validate numeAdd">
+        <a>Prenume</a>
+        <input type="text" id="modalAddPrenume" class="form-control validate prenumeAdd">
+        <a> Asociație </a>
+        <input type="text" id="modalAddAsociatie" class="form-control validate asociatieAdd">
+        <a> Federatie </a>
+        <input type="text" id="modalAddFederatie" class="form-control validate federatieAdd">
+        <a> Facultate </a>
+        <input type="text" id="modalAddFacultate" class="form-control validate facultateAdd">
+        <a> Email </a>
+        <input type="email" id="modalAddEmail" class="form-control validate facultateAdd">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="1" id="consiliuCheck">
+          <label class="form-check-label" for="consiliuCheck">Consiliul Facultății</label>
+          <br>
+          <input class="form-check-input" type="checkbox" value="1" id="senatCheck">
+          <label class="form-check-label" for="senatCheck">Senatul Universității</label>
+          <br>
+          <input class="form-check-input" type="checkbox" value="1" id="consiliuadministratieCheck">
+          <label class="form-check-label" for="consiliuadministratieCheck">Consiliul de Administrație al Universității</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
 </div>
 
