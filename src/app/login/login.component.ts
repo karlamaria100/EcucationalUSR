@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  doLogin(username: string, password: string) {
+  doLogin() {
     this.route.navigate(['/admin']);
     // this.loginService.login(username, password).forEach((value) => {
     //   if (value.status === 'ACCEPTED') {
