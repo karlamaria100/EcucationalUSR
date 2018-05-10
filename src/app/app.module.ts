@@ -12,6 +12,7 @@ import { LandingComponent } from './landing/landing.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import {FormsModule} from "@angular/forms";
+import {TopicComponent} from './topic/topic.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {FormsModule} from "@angular/forms";
     LandingComponent,
     HomepageComponent,
     UserProfileComponent,
+    TopicComponent
   ],
   imports: [
     BrowserModule,

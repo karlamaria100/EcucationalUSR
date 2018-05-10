@@ -13,26 +13,27 @@
       <ul class="navbar-nav ml-md-auto">
         <li class = "nav-item">
           <a class= "nav-link" href="" id = ""> Contact </a>
+          <a class= "nav-link" [routerLink]="'userProfile/'+shared.userData.username.substr(shared.userData.username.indexOf('@'))" id = ""> My Profile </a>
         </li>
 
       </ul>
     </div>
   </nav>
-  <div class="jumbotron" style="padding:26px;height:181px;background-color:rgb(84,159,235);">
-    <h1>Heading text</h1>
-    <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-    <p><a class="btn btn-primary" role="button" href="#">Learn more</a></p>
-  </div>
+  <!--<div class="jumbotron" style="padding:26px;height:181px;background-color:rgb(84,159,235);">-->
+    <!--<h1>Heading text</h1>-->
+    <!--<p>Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>-->
+    <!--<p><a class="btn btn-primary" role="button" href="#">Learn more</a></p>-->
+  <!--</div>-->
   <div>
     <div class="container">
       <div class="row">
         <div class="col-md-6">
           <div>
             <ul class="nav nav-tabs">
-              <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">Today <span class="badge badge-pill badge-primary">42</span></a></li>
-              <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-2">Lastest <span class="badge badge-pill badge-primary">42</span></a></li>
-              <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">Popular <span class="badge badge-pill badge-primary">42</span></a></li>
-              <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-4">All <span class="badge badge-pill badge-primary">42</span></a></li>
+              <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">Today</a></li>
+              <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-2">Lastest </a></li>
+              <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">Popular</a></li>
+              <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-4">All</a></li>
             </ul>
             <div class="tab-content">
               <div class="tab-pane active" role="tabpanel" id="tab-1">

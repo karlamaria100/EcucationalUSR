@@ -6,13 +6,15 @@ import {LandingComponent} from './landing/landing.component';
 import {HomepageComponent} from './homepage/homepage.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
 import {FormsModule} from "@angular/forms";
+import {TopicComponent} from './topic/topic.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'admin', component: AdminDeshboardComponent},
   {path: 'homepage', component: LandingComponent},
   {path: 'home', component: HomepageComponent},
-  {path: 'userProfile', component: UserProfileComponent}
+  {path: 'userProfile/:username', component: UserProfileComponent},
+  {path: ':topicName', component: TopicComponent}
 ]
 
 

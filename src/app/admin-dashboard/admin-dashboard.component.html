@@ -1,4 +1,3 @@
-
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
@@ -21,6 +20,7 @@
       </nav>
     </div>
   </div>
+
   <div class="row">
     <div class="col-md-12">
       <h3 class="text-center">
@@ -38,6 +38,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#panel-52856" data-toggle="tab">Asociații</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#panel-12345" data-toggle="tab">Universități</a>
           </li>
         </ul>
         <div class="tab-content">
@@ -88,7 +91,7 @@
               <tbody>
               <tr *ngFor="let stud of studenti">
                 <td>
-                  {{stud.id_student}}
+                  {{stud.id}}
                 </td>
                 <td>
                   {{stud.email}}
@@ -108,32 +111,25 @@
                 <td>
                   {{stud.id_facultate}}
                 </td>
-                <td class="text-center" *ngIf="stud.consiliu" >
-                  <i class="fas fa-check" ></i>
-                </td>
-                <td class="text-center" *ngIf="!stud.consiliu" >
-                  <i class="fas fa-times" ></i>
-                </td>
-                <td class="text-center" *ngIf="stud.senat">
+                <td class="text-center">
                   <i class="fas fa-check"></i>
                 </td>
-                <td class="text-center" *ngIf="!stud.senat">
-                  <i class="fas fa-times"></i>
-                </td>
-                <td class="text-center"  *ngIf="stud.consiliu_administratie">
+                <td class="text-center">
                   <i class="fas fa-check"></i>
                 </td>
-                <td class="text-center"  *ngIf="!stud.consiliu_administratie">
-                  <i class="fas fa-times"></i>
+                <td class="text-center">
+                  <i class="fas fa-check"></i>
                 </td>
                 <td class="text-center">
                   <!--<a class='btn btn-info btn-xs' onclick="openModal(stud)"><i class="fas fa-edit"></i> Edit</a>-->
-                  <button type="button" class="btn btn-primary" (click)="openModal(stud, 1)" data-toggle="modal" data-target="#editModal">
+                  <button type="button" class="btn btn-primary" (click)="openModal(stud)" data-toggle="modal" data-target="#editModal">
                     <i class="fas fa-edit"></i> Edit
                   </button>
                 </td>
                 <td class="text-center">
-                  <a class='btn btn-danger btn-xs' href="#"><i class="fas fa-trash-alt"></i> Șterge</a>
+                  <button type="button" class="btn btn-danger delete" data-toggle="modal" data-target="#deleteModal">
+                    <i class="fas fa-trash-alt"></i> Șterge
+                  </button>
                 </td>
               </tr>
               </tbody>
@@ -184,7 +180,75 @@
                   </button>
                 </td>
                 <td class="text-center">
-                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+                  <button type="button" class="btn btn-danger delete" data-toggle="modal" data-target="#deleteModal">
+                    <i class="fas fa-trash-alt"></i> Șterge
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-pane" id="panel-12345">
+            <table class="table table-bordered table-hover table-sm" >
+              <thead>
+              <tr>
+                <th>
+                  ID
+                </th>
+                <th>
+                  Denumire
+                </th>
+                <th>
+                  Abreviere
+                </th>
+                <th>
+                  Categorie
+                </th>
+                <th>
+                  Oraș
+                </th>
+                <th>
+                  Rector
+                </th>
+                <th>
+                  Observație
+                </th>
+                <th>
+                  Finanțare
+                </th>
+                <th>
+                  Edit
+                </th>
+                <th>
+                  Delete
+                </th>
+
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let univ of universitati">
+                <td>
+                  {{univ.id}}
+                </td>
+                <td>
+                  {{univ.denumire}}
+                </td>
+                <td>
+                  {{univ.abreviere}}
+                </td>
+                <td>
+                  {{univ.categorie}}
+                </td>
+                <td>
+                  {{univ.oras}}
+                </td>
+                <td class="text-center">
+                  <button type="button" class="btn btn-primary edit" data-toggle="modal" data-target="#editModal">
+                    <i class="fas fa-edit"></i> Edit
+                  </button>
+                </td>
+                <td class="text-center">
+                  <button type="button" class="btn btn-danger delete" data-toggle="modal" data-target="#deleteModal">
                     <i class="fas fa-trash-alt"></i> Șterge
                   </button>
                 </td>

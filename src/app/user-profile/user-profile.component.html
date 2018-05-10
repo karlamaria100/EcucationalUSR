@@ -13,6 +13,10 @@
       <ul class="navbar-nav ml-md-auto">
         <li class = "nav-item">
           <a class= "nav-link" href="" id = ""> Contact </a>
+
+        </li>
+        <li>
+          <a class= "nav-link" [routerLink]="'userProfile/'+shared.userData.username.substr(shared.userData.username.indexOf('@'))" id = ""> My Profile </a>
         </li>
 
       </ul>
