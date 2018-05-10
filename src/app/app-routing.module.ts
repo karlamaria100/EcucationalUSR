@@ -3,11 +3,13 @@ import { RouterModule, Routes, ActivatedRouteSnapshot, RouterStateSnapshot } fro
 import {LoginComponent} from './login/login.component';
 import {AdminDeshboardComponent} from "./admin-dashboard/admin-dashboard.component";
 import {LandingComponent} from './landing/landing.component';
+import {HomepageComponent} from './homepage/homepage.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'admin', component: AdminDeshboardComponent},
-  {path: 'homepage', component: LandingComponent}
+  {path: 'homepage', component: LandingComponent},
+  {path: 'home', component: HomepageComponent}
 //   // {path: 'confirmation/:token', component: ConfirmationComponent},
 //   // {path: 'reset-password/:token', component: ResetPasswordComponent},
 //   // {path: 'login', component: LoginComponent},
