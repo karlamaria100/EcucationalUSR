@@ -11,6 +11,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { LandingComponent } from './landing/landing.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -24,10 +25,10 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [LoginService,
-  SharedService],
+  providers: [LoginService, SharedService],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })

@@ -5,6 +5,7 @@ import {AdminDeshboardComponent} from "./admin-dashboard/admin-dashboard.compone
 import {LandingComponent} from './landing/landing.component';
 import {HomepageComponent} from './homepage/homepage.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
+import {FormsModule} from "@angular/forms";
 
 const routes: Routes = [
   {path: '', component: LoginComponent},

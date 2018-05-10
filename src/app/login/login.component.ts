@@ -12,19 +12,26 @@ import {SharedService} from "../shared.service";
 })
 export class LoginComponent implements OnInit {
 
+  public email:any;
+  public password:any;
+
   constructor(private loginService: LoginService, private route: Router, private sharedService: SharedService) { }
 
   ngOnInit() {
   }
 
   doLogin() {
-    this.route.navigate(['/admin']);
-    // this.loginService.login(username, password).forEach((value) => {
-    //   if (value.status === 'ACCEPTED') {
-    //     this.route.navigate(['/admin']);
-    //     this.sharedService.userData.username = value.username;
-    //     this.sharedService.userData.email = value.email;
-    //   }
-    // });
+    console.log(this.email);
+    console.log(this.password);
+    this.email = (<HTMLInputElement>document.getElementById('exampleInputEmail1')).value;
+    this.password = (<HTMLInputElement>document.getElementById('exampleInputPassword1')).value;
+    this.loginService.login(this.email, this.password).subscribe((value) => {
+      if (value.status === 'ACCEPTED') {
+        console.log(value);
+        this.route.navigate(['/admin']);
+        // this.sharedService.userData.username = value.username;
+        // this.sharedService.userData.email = value.email;
+      }
+    });
   }
 }

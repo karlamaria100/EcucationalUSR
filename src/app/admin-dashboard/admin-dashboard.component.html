@@ -88,7 +88,7 @@
               <tbody>
               <tr *ngFor="let stud of studenti">
                 <td>
-                  {{stud.id}}
+                  {{stud.id_student}}
                 </td>
                 <td>
                   {{stud.email}}
@@ -108,18 +108,27 @@
                 <td>
                   {{stud.id_facultate}}
                 </td>
-                <td class="text-center">
+                <td class="text-center" *ngIf="stud.consiliu" >
+                  <i class="fas fa-check" ></i>
+                </td>
+                <td class="text-center" *ngIf="!stud.consiliu" >
+                  <i class="fas fa-times" ></i>
+                </td>
+                <td class="text-center" *ngIf="stud.senat">
                   <i class="fas fa-check"></i>
                 </td>
-                <td class="text-center">
+                <td class="text-center" *ngIf="!stud.senat">
+                  <i class="fas fa-times"></i>
+                </td>
+                <td class="text-center"  *ngIf="stud.consiliu_administratie">
                   <i class="fas fa-check"></i>
                 </td>
-                <td class="text-center">
-                  <i class="fas fa-check"></i>
+                <td class="text-center"  *ngIf="!stud.consiliu_administratie">
+                  <i class="fas fa-times"></i>
                 </td>
                 <td class="text-center">
                   <!--<a class='btn btn-info btn-xs' onclick="openModal(stud)"><i class="fas fa-edit"></i> Edit</a>-->
-                  <button type="button" class="btn btn-primary" (click)="openModal(stud)" data-toggle="modal" data-target="#editModal">
+                  <button type="button" class="btn btn-primary" (click)="openModal(stud, 1)" data-toggle="modal" data-target="#editModal">
                     <i class="fas fa-edit"></i> Edit
                   </button>
                 </td>
