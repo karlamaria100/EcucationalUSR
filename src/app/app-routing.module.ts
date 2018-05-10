@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: 'homepage', component: LandingComponent},
   {path: 'home', component: HomepageComponent},
   {path: 'userProfile/:username', component: UserProfileComponent},
-  {path: ':topicName', component: TopicComponent}
+  {path: ':topicId/:topicName', component: TopicComponent}
 ]
 
 

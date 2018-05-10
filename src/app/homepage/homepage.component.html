@@ -1,7 +1,7 @@
 <div class="container">
   <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
 
-    <a class="navbar-brand navbar-toggler-left" href="">
+    <a class="navbar-brand navbar-toggler-left" href="/home">
       <img class="navbar-logo" src="./assets/usr-logo.jpg"></a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
       <span class="navbar-toggler-icon"></span>
@@ -12,110 +12,82 @@
       <ul class="navbar-nav ml-md-auto">
         <li class = "nav-item">
           <a class= "nav-link" href="" id = ""> Contact </a>
-          <a class= "nav-link" [routerLink]="'userProfile/'+shared.userData.username.substr(shared.userData.username.indexOf('@'))" id = ""> My Profile </a>
+        </li>
+        <li>
+          <a class= "nav-link" [routerLink]="'/userProfile/'+shared.username"> My Profile </a>
+        </li>
+        <li>
+          <a class= "nav-link" (click)="signOut()"> Sign Out </a>
         </li>
       </ul>
     </div>
   </nav>
-  <!--<div class="jumbotron" style="padding:26px;height:181px;background-color:rgb(84,159,235);">-->
-    <!--<h1>Heading text</h1>-->
-    <!--<p>Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>-->
-    <!--<p><a class="btn btn-primary" role="button" href="#">Learn more</a></p>-->
-  <!--</div>-->
   <div>
     <div class="container">
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10"style="margin-bottom: 20px;margin-top: 20px;">
+          <button type="button" class="btn btn-info" (click)="openAddModal('addModal')" data-toggle="modal" data-target="#addModal">
+            <i class="fas fa-plus"></i> Topic
+          </button>
+         </div>
+        <div class="col-1"></div>
+      </div>
       <div class="row">
         <div class="col-md-6">
           <div>
             <ul class="nav nav-tabs">
-              <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">Today</a></li>
-              <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-2">Lastest </a></li>
-              <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">Popular</a></li>
+              <!--<li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">Today</a></li>-->
+              <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-2">Latest </a></li>
+              <!--<li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">Popular</a></li>-->
               <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-4">All</a></li>
             </ul>
             <div class="tab-content">
-              <div class="tab-pane active" role="tabpanel" id="tab-1">
-                <div class="thread-list-head">
-                  <nav class="thread-pages">
-                    <ul class="pagination">
-                      <li class="page-item"><a class="page-link" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                      <li class="page-item"><a class="page-link">1</a></li>
-                      <li class="page-item"><a class="page-link">2</a></li>
-                      <li class="page-item"><a class="page-link">3</a></li>
-                      <li class="page-item"><a class="page-link">4</a></li>
-                      <li class="page-item"><a class="page-link">5</a></li>
-                      <li class="page-item"><a class="page-link" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                    </ul>
-                  </nav>
-                </div>
+
+              <div class="tab-pane active" role="tabpanel" id="tab-2">
                 <ul class="thread-list">
-                  <li class="thread"><span class="time">Apr 21</span><span class="title">Maecenas finibus est nec pretium molestie. </span><span class="icon"> <a href="javascript:void(0)" class="subscribe"><i class="fa fa-star-o"></i></a><a href="javascript:void(0)" class="flag"><i class="fa fa-flag"></i></a></span></li>
-                  <li
-                    class="thread"><span class="time">Apr 20</span><span class="title">Curabitur consectetur velit pharetra ex eleifend tempor. </span><span class="icon"> <a href="javascript:void(0)" class="subscribe"><i class="fa fa-star-o"></i></a><a href="javascript:void(0)" class="flag"><i class="fa fa-flag"></i></a></span></li>
-                  <li
-                    class="thread"><span class="time">Apr 20</span><span class="title">Fusce iaculis ligula at nisl mollis suscipit. </span><span class="icon"> <a href="javascript:void(0)" class="subscribe"><i class="fa fa-star-o"></i></a><a href="javascript:void(0)" class="flag"><i class="fa fa-flag"></i></a></span></li>
-                  <li
-                    class="thread"><span class="time">Apr 18</span><span class="title">Pellentesque tempus augue id risus lacinia vehicula. </span><span class="icon"> <a href="javascript:void(0)" class="subscribe"><i class="fa fa-star-o"></i></a><a href="javascript:void(0)" class="flag"><i class="fa fa-flag"></i></a></span></li>
-                  <li
-                    class="thread"><span class="time">Apr 17</span><span class="title">Quisque lacinia massa non ex lobortis congue. </span><span class="icon"> <a href="javascript:void(0)" class="subscribe"><i class="fa fa-star-o"></i></a><a href="javascript:void(0)" class="flag"><i class="fa fa-flag"></i></a></span></li>
-                  <li
-                    class="thread"><span class="time">Apr 19</span><span class="title">Mauris quis elit vitae erat luctus sagittis non vel ex. </span><span class="icon"> <a href="javascript:void(0)" class="subscribe"><i class="fa fa-star-o"></i></a><a href="javascript:void(0)" class="flag"><i class="fa fa-flag"></i></a></span></li>
-                  <li
-                    class="thread"><span class="time">Apr 17</span><span class="title">Nam dapibus urna vitae semper egestas. </span><span class="icon"> <a href="javascript:void(0)" class="subscribe"><i class="fa fa-star-o"></i></a><a href="javascript:void(0)" class="flag"><i class="fa fa-flag"></i></a></span></li>
-                  <li
-                    class="thread"><span class="time">Apr 15</span><span class="title">Sed sit amet ante malesuada, lacinia urna sed, faucibus sem. </span><span class="icon"> <a href="javascript:void(0)" class="subscribe"><i class="fa fa-star-o"></i></a><a href="javascript:void(0)" class="flag"><i class="fa fa-flag"></i></a></span></li>
-                  <li
-                    class="thread"><span class="time">Mar 23</span><span class="title">Nullam et massa a velit laoreet porttitor et nec neque. </span><span class="icon"> <a href="javascript:void(0)" class="subscribe"><i class="fa fa-star-o"></i></a><a href="javascript:void(0)" class="flag"><i class="fa fa-flag"></i></a></span></li>
-                  <li
-                    class="thread"><span class="time">Mar 21</span><span class="title">Donec ut elit sodales, dignissim ligula at, posuere lacus. </span><span class="icon"> <a href="javascript:void(0)" class="subscribe"><i class="fa fa-star-o"></i></a><a href="javascript:void(0)" class="flag"><i class="fa fa-flag"></i></a></span></li>
-                  <li
-                    class="thread"><span class="time">Mar 2</span><span class="title">Nam in ligula vel nisl lobortis suscipit nec in lectus. </span><span class="icon"> <a href="javascript:void(0)" class="subscribe"><i class="fa fa-star-o"></i></a><a href="javascript:void(0)" class="flag"><i class="fa fa-flag"></i></a></span></li>
+                  <div *ngFor="let topic of latestTopics"  (click)="openTopic(topic)">
+                    <li class="thread" >
+                      <span class="time">{{topic.timestamp}}</span>
+                      <span class="title">{{topic.topic_title}}</span>
+                      <span class="icon">
+                      <a href="javascript:void(0)" class="subscribe"><i class="fa fa-star-o"></i></a><a href="javascript:void(0)" class="flag"></a>
+                    </span>
+                    </li>
+                  </div>
                 </ul>
               </div>
-              <div class="tab-pane" role="tabpanel" id="tab-2"></div>
-              <div class="tab-pane" role="tabpanel" id="tab-3"></div>
-              <div class="tab-pane" role="tabpanel" id="tab-4"></div>
+              <div class="tab-pane" role="tabpanel" id="tab-4">
+                <ul class="thread-list">
+                  <div *ngFor="let topic of allTopics"  (click)="openTopic(topic)">
+                    <li class="thread" >
+                      <span class="time">{{topic.timestamp}}</span>
+                      <span class="title">{{topic.topic_title}}</span>
+                      <span class="icon">
+                      <a href="javascript:void(0)" class="subscribe"><i class="fa fa-star-o"></i></a><a href="javascript:void(0)" class="flag"></a>
+                    </span>
+                    </li>
+                  </div>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
         <div class="col-md-6">
           <ul class="list-group">
             <li class="list-group-item">
-              <div class="media">
-                <div><input type="checkbox"></div>
-                <div class="media-body">
-                  <div class="media" style="overflow:visible;">
-                    <div><img src="assets/img/user-photo.jpg" class="mr-3" style="width: 25px; height:25px;"></div>
+              <div class="media" style="display: block !important;">
+                <!--<div><input type="checkbox"></div>-->
+                <div class="media-body" *ngFor="let comment of comments">
+                  <div class="media" style="overflow:visible;display: block !important;  ">
+                    <!--<div><img src="assets/img/user-photo.jpg" class="mr-3" style="width: 25px; height:25px;"></div>-->
                     <div class="media-body" style="overflow:visible;">
-                      <div class="row">
+                      <div class="row" style="display: block;">
                         <div class="col-10">
-                          <h5><a href="#"><strong>Albert Anderson</strong></a></h5>
-                          <p>Connect with Alex to discuss his recurring gift<br>
-                            <small class="text-muted">08/03/16 at 9:00am </small></p>
-                        </div>
-                        <div class="col-2">
-                          <div class="dropdown pull-right"><button class="btn btn-link btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button"> <i class="fa fa-chevron-down"></i></button>
-                            <div class="dropdown-menu dropdown-menu-right"
-                                 role="menu"><a class="dropdown-item" role="presentation" href="#"><i class="fa fa-pencil fa-fw"></i>Edit</a><a class="dropdown-item" role="presentation" href="#"><i class="fa fa-trash-o fa-fw"></i>Delete </a></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <div class="media">
-                <div><span class="fa-stack"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-dollar fa-stack-1x fa-inverse"></i></span></div>
-                <div class="media-body">
-                  <div class="media" style="overflow:visible;">
-                    <div><img src="assets/img/user-photo4.jpg" class="mr-3" style="width: 25px; height:25px;"></div>
-                    <div class="media-body" style="overflow:visible;">
-                      <div class="row">
-                        <div class="col-md-12">
-                          <p><a href="#">Sara Doe</a> donated $100 to <a href="#">Build a New Shelter Campaign </a> (added by <a href="#">John Stewart</a>)<br>
-                            <small class="text-muted">August 6, 2016 @ 10:35am </small></p>
+                          <h5 *ngIf="comment.author_email != shared.username"><a [routerLink]="'/userProfile/'+comment.author_email"><strong>{{comment.author}}</strong></a></h5>
+                          <h5 *ngIf="comment.author_email == shared.username"><a [routerLink]="'/userProfile/'+comment.author_email"><strong>You</strong></a></h5>
+                          <p>{{comment.content}}<br>
+                            <small class="text-muted">{{comment.timestamp}} </small></p>
                         </div>
                       </div>
                     </div>
@@ -125,6 +97,27 @@
             </li>
           </ul>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add new student</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <a>Titlu:</a>
+        <input type="text" id="modalAddNume" [(ngModel)]="nume" class="form-control validate numeAdd">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="saveTopic()">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

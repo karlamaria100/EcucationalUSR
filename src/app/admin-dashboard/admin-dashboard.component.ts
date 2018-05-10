@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SharedService} from '../shared.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-admin-deshboard',
@@ -7,10 +8,28 @@ import {SharedService} from '../shared.service';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDeshboardComponent implements OnInit {
+  consiliuAdm: any;
+  senat: any;
+  consiliu: any;
 
   studenti: any[] = [];
   asociatii: any[] = [];
-  constructor(private shared: SharedService) {
+  universitati: any[] = [];
+  nume: string;
+  prenume: string;
+  asociatie: string;
+  federatie: string;
+  fac: string;
+  email: string;
+  constructor(public shared: SharedService, public route:Router) {
+    if(localStorage.getItem('username')){
+      if(localStorage.getItem('type') == 'Admin')
+        this.shared.username = localStorage.getItem('username');
+      else this.route.navigate(['/']);
+    }
+    else this.route.navigate(['/']);
+
+
     this.shared.getAllStudents().subscribe((value) => {
       console.log(value);
       this.studenti = value;
@@ -18,6 +37,10 @@ export class AdminDeshboardComponent implements OnInit {
     this.shared.getAllAsociations().subscribe((value) => {
       console.log(value);
       this.asociatii = value;
+    });
+    this.shared.getAllUniversitati().subscribe((value) => {
+      console.log(value);
+      this.universitati = value;
     });
   }
 
@@ -50,10 +73,55 @@ export class AdminDeshboardComponent implements OnInit {
     return false;
   }
 
-  openAddModal() {
-    const myModal = document.getElementById('addModal');
+  openAddModal(id) {
+    const myModal = document.getElementById(id);
     myModal.style.visibility = 'true';
     return false;
 
+  }
+
+  saveStudent(){
+    console.log(this.nume);
+    this.shared.addStudent(this.email, this.nume, this.prenume, this.federatie, this.asociatie,this.consiliu, this.senat, this.consiliuAdm).subscribe((value)=>{
+      this.studenti=[];
+      const myModal = document.getElementById('addModal');
+      myModal.style.visibility = 'false';
+      this.shared.getAllStudents().subscribe((value) => {
+        console.log(value);
+        this.studenti = value;
+      });
+    })
+  }
+
+  saveAsociatie(){
+    console.log(this.nume);
+    this.shared.addAsociatie(this.email, this.nume, this.prenume).subscribe((value)=>{
+      this.asociatii=[];
+      const myModal = document.getElementById('addAsociatie');
+      myModal.style.visibility = 'false';
+      this.shared.getAllAsociations().subscribe((value) => {
+        console.log(value);
+        this.asociatii = value;
+      });
+    })
+  }
+
+  saveUniversitate(){
+    console.log(this.nume);
+    this.shared.addUniversity(this.email, this.nume, this.prenume, this.federatie, this.asociatie, this.fac, this.senat).subscribe((value)=>{
+      this.universitati=[];
+      const myModal = document.getElementById('addUniversitate');
+      myModal.style.visibility = 'false';
+      this.shared.getAllUniversitati().subscribe((value) => {
+        console.log(value);
+        this.universitati = value;
+      });
+    })
+  }
+
+  signOut() {
+    localStorage.setItem('username',null);
+    localStorage.setItem('type',null);
+    this.route.navigate(['/']);
   }
 }

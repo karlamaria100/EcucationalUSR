@@ -1,7 +1,7 @@
 <div class="container">
   <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
 
-    <a class="navbar-brand navbar-toggler-left" href="">
+    <a class="navbar-brand navbar-toggler-left" href="/home">
       <img class="navbar-logo" src="./assets/usr-logo.jpg"></a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
       <span class="navbar-toggler-icon"></span>
@@ -16,7 +16,10 @@
 
         </li>
         <li>
-          <a class= "nav-link" [routerLink]="'userProfile/'+shared.userData.username.substr(shared.userData.username.indexOf('@'))" id = ""> My Profile </a>
+          <a class= "nav-link" [routerLink]="'userProfile/'+shared.username"> My Profile </a>
+        </li>
+        <li>
+          <a class= "nav-link" (click)="signOut()"> Sign Out </a>
         </li>
 
       </ul>
@@ -26,14 +29,14 @@
   <div class="card">
     <div class="card-body">
       <div class="media">
-        <div><img src="assets/img/user-photo2.jpg" class="mr-3" style="height: 50px; width: 50px;"></div>
         <div class="media-body">
-          <ul class="list-unstyled fa-ul">
-            <li><i class="fa fa-user fa-li"></i><a href="#">Placeholder Name</a></li>
-            <li><i class="fa fa-envelope fa-li"></i><a href="#">placeholder email </a></li>
-            <li><i class="fa fa-phone fa-li"></i>Placeholder facultate</li>
-            <li><i class="fa fa-phone fa-li"></i>Placeholder universitate</li>
-            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#changePasswordModal">
+          <a *ngIf="userData == null" href="javascript:void(0)" class="subscribe"><i class="fa fa-star-o"></i></a><a href="javascript:void(0)" class="flag"></a>
+          <ul *ngIf="userData != null" class="list-unstyled fa-ul">
+            <li><i class="fa fa-user fa-li"></i>{{userData?.nume}} {{userData?.prenume}}</li>
+            <li><i class="fa fa-envelope fa-li"></i>{{userData?.username}}</li>
+            <li><i class="fa fa-phone fa-li"></i>{{userData?.federatie}}</li>
+            <!--<li><i class="fa fa-phone fa-li"></i>{{ userData.universitate}}</li>-->
+            <button *ngIf="username == shared.username" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#changePasswordModal">
               Schimbă parola
             </button> <!-- TODO: Doar daca sunt logat ca eu -->
           </ul>
